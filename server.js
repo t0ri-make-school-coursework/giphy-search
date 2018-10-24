@@ -5,15 +5,9 @@ const http = require('http');
 const giphy = require('giphy-api')();
 
 
-
-
-server.engine('handlebars', exphbs({
-    defaultLayout: 'main'
-}));
-
+server.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 server.set('view engine', 'handlebars');
 server.use(express.static('public'));
-
 
 server.get('/', function(req, res) {
     if (req.query.term) {
@@ -26,8 +20,6 @@ server.get('/', function(req, res) {
         });
     }
 });
-
-
 
 server.listen(3000, function() {
     console.log('Gif Search listening on port localhost:3000!');
